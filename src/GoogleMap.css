@@ -1,0 +1,11 @@
+/* .Map {
+    position: absolute;
+    height: auto; 
+    min-width: 100%;
+    top: 0px;
+    left: 0px;
+}
+
+.Menu.is-visible .Map {
+    left: 300px;
+} */
