@@ -2,10 +2,17 @@ import React from "react";
 import floorPlan from "./floorPlan.png";
 
 export default class FloorPlan extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            isPressed: false
+        }
+    }
   render() {
     return (
       <div>
         <img src={floorPlan} width="845" height="624" border="0" usemap="#map" />
+            {this.state.isPressed && <div><Details /> </div>}
         <map name="map">
           <area shape="rect" coords="23,103,129,137" href="58" />
           <area shape="rect" coords="23,137,130,169" href="59" />
