@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import floorPlanData from "./floorPlanData";
 
 export default class Details extends React.Component {
@@ -26,4 +27,11 @@ componentDidMount() {
       return (<div>Nothing</div>)
     }
 }
+=======
+
+export default class Details extends React.Component {
+  render() {
+    return <div>{this.props.room.id}</div>;
+  }
+>>>>>>> upstream/master
 }
