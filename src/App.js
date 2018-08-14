@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import logo from './images/logo.svg';
-import FloorPlanImage from './images/AlphaAppFloor.png';
 import GoogleMap from './GoogleMap.js';
 import './App.css';
 import FloorPlan from './FloorPlan/FloorPlan';
