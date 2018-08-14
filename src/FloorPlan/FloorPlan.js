@@ -1,5 +1,6 @@
 import React from "react";
 import floorPlan from "./floorPlan.png";
+import Details from "./Details/Details";
 
 export default class FloorPlan extends React.Component {
     constructor() {
@@ -8,14 +9,20 @@ export default class FloorPlan extends React.Component {
             isPressed: false
         }
     }
+
+  roomClick() {
+    this.setState({ isPressed: true })
+  }
+
   render() {
-    return (
-      <div>
+    return <div>
         <img src={floorPlan} width="845" height="624" border="0" usemap="#map" />
-            {this.state.isPressed && <div><Details /> </div>}
+        {this.state.isPressed && <div>
+            <Details />
+          </div>}
         <map name="map">
-          <area shape="rect" coords="23,103,129,137" href="58" />
-          <area shape="rect" coords="23,137,130,169" href="59" />
+        <area onClick={this.roomClick.bind(this)} shape="rect" coords="23,103,129,137" />
+        <area shape="rect" coords="23,137,130,169" href="59" />
           <area shape="rect" coords="23,169,130,207" href="60" />
           <area shape="rect" coords="23,207,106,235" href="61" />
           <area shape="rect" coords="23,235,106,275" href="62" />
@@ -30,7 +37,6 @@ export default class FloorPlan extends React.Component {
           <area shape="rect" coords="144,165,181,187" href="56" />
           <area shape="rect" coords="144,187,182,208" href="55" />
         </map>
-      </div>
-    );
+      </div>;
   }
 }
