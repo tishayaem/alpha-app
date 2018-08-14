@@ -62,15 +62,14 @@
   font-size:1.2rem;
 }
 
+.flex-item-01 p {
+  font-size:1.2rem;
+}
+
 .flex-item-02{
   flex: 1;
   flex-basis: 47%;
   padding: 0.5rem;
-}
-
-.map{
-  height: 40rem;
-  position: relative;
 }
 
 li {
