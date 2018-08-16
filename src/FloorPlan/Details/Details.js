@@ -12,11 +12,19 @@ export default class Details extends React.Component {
   setRoomInfo(roomInfo) {
     this.setState({ roomInfo: roomInfo });
   }
-
+// Render component first time we click
   componentDidMount() {
+    this.findRoom(this.props);
+  }
+// Re-render component every time we click again
+  componentWillReceiveProps(props) {
+    this.findRoom(props);
+  }
+// Match id from html area tag with studio number from collection of room information
+  findRoom(roomProps) {
     this.setRoomInfo(
       floorPlanData().find(roomInfo => {
-        return roomInfo.studioNo == this.props.room.id;
+        return roomInfo.studioNo === roomProps.room.id;
       })
     );
   }
@@ -29,9 +37,8 @@ export default class Details extends React.Component {
           <div>Availability: {this.state.roomInfo.availability}</div>
           <div>Window: {this.state.roomInfo.window}</div>
           <div>Size: {this.state.roomInfo.sizeSqFt} sq ft</div>
-          <div>Anual price: {this.state.roomInfo.pricePsfAnual}£</div>
-          <div>Price excluding VAT: {this.state.roomInfo.priceExVat}£</div>
-          <div>Price including VAT: {this.state.roomInfo.priceIncVat}£</div>
+          <div>Price: {this.state.roomInfo.priceIncVat}£</div>
+          <div>Price per square feet: {this.state.roomInfo.pricePsfAnual}£</div>
         </div>
       );
     } else {
