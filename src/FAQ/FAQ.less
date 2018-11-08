@@ -1,0 +1,53 @@
+@for-phone-only: ~"only screen and (max-width: 599px)";
+@for-tablet-portrait-up: ~"only screen and (min-width: 600px) and (max-width: 899px)";
+@for-tablet-landscape-up: ~"only screen and (min-width: 900px) and (max-width: 1201px)";
+@for-desktop-up: ~"only screen and (min-width: 1200px) and (max-width: 1799px)";
+@for-big-desktop-up: ~"only screen and (min-width: 1800px)";
+
+.container-faq{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 20rem;
+    width:auto;
+    background-color:#CDEFF8;
+}
+
+.flex-item-faq-title {
+    margin: 0;
+    padding-top: 2rem; 
+}
+
+.flex-item-faq-text {
+    text-align: left;
+    font-size: 1.2rem;
+    padding: 0rem 5rem;
+    overflow-wrap: break-word; 
+    .flex-item-faq-text-size;
+}
+
+.flex-item-faq-text-size (@padding: 0.5rem, @height:100%) {
+    @media @for-phone-only {
+        padding: 1rem @padding;
+        font-size: 1.2rem;
+        line-height: @height;
+    }
+    @media @for-tablet-portrait-up {
+        padding: 1rem @padding * 4;
+        font-size: 1.2rem;
+        line-height: @height;
+    }
+    @media @for-tablet-landscape-up {
+        padding: 1.5rem @padding * 6;
+        font-size: 1.2rem;
+        line-height: @height * 1.2;
+    }
+    @media @for-desktop-up {
+        padding: 2rem @padding * 8;
+        font-size: 1.2rem;
+        line-height: @height * 1.7;
+    }
+    @media @for-big-desktop-up {
+    }
+}
