@@ -4,26 +4,21 @@
 @for-desktop-up: ~"only screen and (min-width: 1200px) and (max-width: 1799px)";
 @for-big-desktop-up: ~"only screen and (min-width: 1800px)";
 
-.container-03{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 45rem;
-    width:auto;
-    background-color:#f7f7f7
-}
+// .container-03{
+//     display: flex;
+//     align-items: left;
+//     justify-content: left;
+//     min-height: 45rem;
+//     width:auto;
+//     background-color:#f7f7f7
+// }
 
-.orientation {
-    @media @for-phone-only, screen and (orientation: portrait) {
-        transform: rotate(90deg);
-    }
-    @media @for-tablet-portrait-up, screen and (orientation:portrait) {
-        transform: rotate(90deg);
-    }
-    @media @for-tablet-landscape-up {
-    }
-    @media @for-desktop-up {
-    }
-    @media @for-big-desktop-up {
-    }
+.flex-item-03 {
+  padding: 2%;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  min-height: 45rem;
+  width: auto;
+  background-color: #f7f7f7;
 }
