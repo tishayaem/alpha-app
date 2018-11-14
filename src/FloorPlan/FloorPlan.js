@@ -1,6 +1,8 @@
 import React from "react";
 import svgCoords from "./svgCoords";
+import "./SVGFloorplan.less";
 import Details from "./Details/Details";
+import floorPlanData from "./Details/floorPlanData";
 
 export default class FloorPlan extends React.Component {
   constructor() {
@@ -12,7 +14,6 @@ export default class FloorPlan extends React.Component {
   // Setting room variable in our state to room object in collection of coordinates
   handleRoomClick = room => {
     this.setState({ room: room });
-    console.log(this.state);
   };
   render() {
     return (
@@ -29,9 +30,17 @@ export default class FloorPlan extends React.Component {
           enableBackground="new 0 0 2048 1536"
         >
           {svgCoords().map(room => {
+            let currentRoom = floorPlanData().find(roomInfo => {
+              return roomInfo.studioNo === room.id;
+            });
             return (
               <polyline
                 id={room.id}
+                className={
+                  currentRoom.availability === "available"
+                    ? "available"
+                    : "taken"
+                }
                 fill="#FF9F3F"
                 onClick={() => this.handleRoomClick(room)}
                 style={{ cursor: "pointer" }}
