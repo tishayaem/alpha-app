@@ -1,8 +1,7 @@
 import React from "react";
-import "./FloorPlan.less";
-import floorPlan from "./floorPlan.svg";
+import svgCoords from "./svgCoords";
 import Details from "./Details/Details";
-import mapArea from "./mapArea";
+
 export default class FloorPlan extends React.Component {
   constructor() {
     super();
@@ -11,40 +10,42 @@ export default class FloorPlan extends React.Component {
     };
   }
   // Setting room variable in our state to room object in collection of coordinates
-  roomClick(room) {
+  handleRoomClick = room => {
     this.setState({ room: room });
-  }
-
+    console.log(this.state);
+  };
   render() {
     return (
-      <div className="flex-item-03">
-        <img
-          src={floorPlan}
-          className="orientation"
-          width="845"
-          height="624"
-          border="0"
-          useMap="#map"
-          alt="map"
-        />
-        <map name="map">
-          {mapArea().map(room => {
+      <div>
+        <svg
+          version="1.1"
+          id="NEW-floorplan"
+          xmlns="http://www.w3.org/2000/svg"
+          x="0px"
+          y="0px"
+          width="2048px"
+          height="1536px"
+          viewBox="0 0 2048 1536"
+          enableBackground="new 0 0 2048 1536"
+        >
+          {svgCoords().map(room => {
             return (
-              <area
-                onClick={() => this.roomClick(room)}
-                shape="rect"
-                coords={room.coords}
-                key={room.id}
-                alt=""
+              <polyline
+                id={room.id}
+                fill="#FF9F3F"
+                onClick={() => this.handleRoomClick(room)}
+                style={{ cursor: "pointer" }}
+                stroke="#000000"
+                strokeWidth="5"
+                points={room.points}
               />
             );
           })}
-        </map>
-        {/* If state defined- render Details component */}
+        </svg>
         {this.state.room && (
-          <span className="details">
+          <div className="details">
             <Details room={this.state.room} />{" "}
-          </span>
+          </div>
         )}
       </div>
     );
